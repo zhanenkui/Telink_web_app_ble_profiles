@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="web-bluetooth" content="width=device-width, initial-scale=1.0">
+        <title>Telink web bluetooth</title>
+        <link rel=stylesheet type="text/css" href="style.css">
+        <link rel="icon" type="image/png" sizes="144x144" href="./image/you.png"/>
+    </head>
+    <style>
+        body { font-family: 'Raleway', sans-serif; color: #d7ecfb; background-color: #072b44; text-align: center; }
+    </style>
+    <body>
+        <div id="all_main" style="width: 100%;height: 100%;">
+            <div id="hname" style="width: 100%;height: 10%;background-color:#666FFF;">
+                <h1 style="margin-bottom:0;text-align:center;">Telink Web Bluetooth Profiles</h1>
+            </div>
+            <div id="search_k">
+                <br>
+                <h2>Please enter Bluetooth UUID search</h2>
+                <form action="" class="parent">
+                    <input type="text" id="text_data" class="search" placeholder="search bluetooth UUID">
+                    <input type="button" name="" id="enter" class="btn" onclick="search_uuid_btn()">
+                </form>
+                <P id="notify_info"></P>
+            </div>
+            <div id="all_k1">
+                <div id="heart_rate" style="color: crimson;" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_heart_rate/')">&#10084;Heart Rate</div> 
+                <div id="gulcose" style="color:sienna;" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_glucose/')">&#9635;Glucose</div>
+                <div id="blood_pressure" style="color:#7a0a06;" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_blood_pressure/')">&#10047;Blood pressure</div>
+            </div>
+            <div id="all_k2">
+                <div id="Thermometer" style="color:rgb(204, 169, 15);" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_thermometer/')">&#9728;Thermometer</div> 
+                <div id="Weight_scale" style="color:rgb(46, 41, 38);" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_weight_scale/')">&#10020;Weight scale</div>
+                <div id="other" onclick="window.open('https://zhanenkui.github.io/Telink_web_bluetooth_user_defined/')">&#9658;other</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+function search_uuid_btn(){
+    var data = document.getElementById("text_data").value;
+
+    //heart rate
+    if(data == "0x180d" || data == "0x180D" || data == "0000180d-0000-1000-8000-00805f9b34fb"){
+        window.open("https://zhanenkui.github.io/Telink_web_bluetooth_heart_rate/");
+    }//glucose
+    else if(data == "0x1808" || data == "00001808-0000-1000-8000-00805f9b34fb"){
+        window.open("https://zhanenkui.github.io/Telink_web_bluetooth_glucose/");
+    }//blood pressure
+    else if(data == "0x1810" || data == "00001810-0000-1000-8000-00805f9b34fb"){
+        window.open("https://zhanenkui.github.io/Telink_web_bluetooth_blood_pressure/");
+    }//thermometer
+    else if(data == "0x1809" || data == "00001809-0000-1000-8000-00805f9b34fb"){
+        window.open("https://zhanenkui.github.io/Telink_web_bluetooth_thermometer/");
+    }//weight scale
+    else if(data == "0x181d" || data == "0x181D" || data == "0000181d-0000-1000-8000-00805f9b34fb"){
+        window.open("https://zhanenkui.github.io/Telink_web_bluetooth_weight_scale/");
+    }
+    else{
+        document.getElementById("notify_info").innerHTML = "This service is not available at the moment";
+    }
+}
+
+</script>
